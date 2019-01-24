@@ -34,6 +34,18 @@ class Student extends Person {
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
     }
+    listsSubjects(favSubjects) {
+        console.log(`${student.name}'s favorite subjects are: `);
+        console.log(`${student.favSubject[0]}`);
+        console.log(`${student.favSubject[1]}`);
+        console.log(`${student.favSubject[2]}`);
+    }
+    PRAssignment(subject) {
+        console.log(`${student.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+    }
 }
 
 const brody = new Person({
