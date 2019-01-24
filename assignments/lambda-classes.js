@@ -129,6 +129,24 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    // Stretch Task #2: Now that our students have a grade build out a method on the Instructor (this will be used by BOTH 
+    // instructors and PM's) that will randomly add or subtract points to a student's grade. Math.random will help.
+    randomGradeChange(student) {
+        let randomNum = (Math.random())*10;
+        // console.log(`This function is working and randomNum is: ${randomNum}`);
+
+        if (randomNum < 5) {
+            let subtractRandomNum = (Math.random())*10;
+            student.grade -= subtractRandomNum;
+            console.log(`${this.name} just realized that ${student.name} forgot to turn in an assignment this week. ${student.name}'s grade is now ${student.grade}`);
+
+        } else {
+            let addRandomNum = (Math.random())*10;
+            student.grade += addRandomNum;
+            console.log(`${this.name} just realized that ${student.name} turned in an extra credit assignment this week. ${student.name}'s grade is now ${student.grade}`);
+
+        }
+    }
 }
 
 //========== NEW OBJECTS FOR SUB-CLASS: Instructor ==========
@@ -168,6 +186,8 @@ console.log(johnson.catchPhrase);
 payton.speak();
 jordan.demo("closures");
 johnson.grade(curry, "API calls");
+// Testing Stretch Task #2
+jordan.randomGradeChange(curry);
 
 
 
@@ -231,4 +251,6 @@ bryant.demo("template literals");
 mcgrady.grade(james, "Variables");
 bryant.standUp("#web17");
 carter.debugsCode(harden,"class syntax");
+// Testing Stretch Task #2
+bryant.randomGradeChange(james);
 
