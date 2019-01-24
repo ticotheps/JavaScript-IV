@@ -23,6 +23,7 @@ At the bottom of this file are 3 objects that all end up inheriting from Humanoi
 Each constructor function has unique properties and methods that are defined in their block comments below:
 
 */
+
   
 /*
   === GameObject ===
@@ -30,15 +31,30 @@ Each constructor function has unique properties and methods that are defined in 
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method -> returns the string 'GameObject was removed from the game.' 
 */
-function GameObject(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-    this.name = options.name;
-  }
+
+//==========OLD ES5 CONSTRUCTOR CODE==========
+// function GameObject(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//     this.name = options.name;
+//   }
   
-  GameObject.prototype.destroy = function () {
-    return `GameObject was removed from the game.`;
-  };
+//   GameObject.prototype.destroy = function () {
+//     return `GameObject was removed from the game.`;
+//   };
+//==========OLD ES5 CONSTRUCTOR CODE==========
+
+  // New ES6 Class Syntax
+  class GameObject {
+      constructor(options) {
+        this.createdAt = options.createdAt;
+        this.dimensions = options.dimensions;
+        this.name = options.name;
+      }
+      destroy() {
+        return `GameObject was removed from the game.`;  
+      }
+  }
   
   /*
   === CharacterStats ===
@@ -48,17 +64,30 @@ function GameObject(options) {
   * should inherit destroy() from GameObject's prototype
   */
   
-  function CharacterStats(characterStatsOptions) {
-    GameObject.call(this, characterStatsOptions);
-    this.healthPoints = characterStatsOptions.healthPoints;
-  }
+//==========OLD ES5 CONSTRUCTOR CODE==========
+//   function CharacterStats(characterStatsOptions) {
+//     GameObject.call(this, characterStatsOptions);
+//     this.healthPoints = characterStatsOptions.healthPoints;
+//   }
   
   // Sets up inheritance with GameObject
-  CharacterStats.prototype = Object.create(GameObject.prototype);
+//   CharacterStats.prototype = Object.create(GameObject.prototype);
   
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  };
+//   CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`;
+//   };
+//==========OLD ES5 CONSTRUCTOR CODE==========
+
+  // New ES6 Class Syntax
+  class CharacterStats extends GameObject {
+      constructor(characterStatsOptions) {
+        super(characterStatsOptions);
+        this.healthPoints = characterStatsOptions.healthPoints;
+      }
+      takeDamage() {
+        return `${this.name} took damage.`;
+      }
+  }
   
   /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -69,19 +98,34 @@ function GameObject(options) {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
   */
-  function Humanoid(humanoidOptions) {
-    CharacterStats.call(this, humanoidOptions);
-    this.team = humanoidOptions.team;
-    this.weapons = humanoidOptions.weapons;
-    this.language = humanoidOptions.language;
+
+//==========OLD ES5 CONSTRUCTOR CODE==========
+//   function Humanoid(humanoidOptions) {
+//     CharacterStats.call(this, humanoidOptions);
+//     this.team = humanoidOptions.team;
+//     this.weapons = humanoidOptions.weapons;
+//     this.language = humanoidOptions.language;
+//   }
+  
+//   Humanoid.prototype = Object.create(CharacterStats.prototype);
+  
+//   Humanoid.prototype.greet = function () {
+//     return `${this.name} offers a greeting in ${this.language}.`;
+//   };
+//==========OLD ES5 CONSTRUCTOR CODE==========
+
+  // New ES6 Class Syntax
+  class Humanoid extends CharacterStats {
+      constructor(humanoidOptions) {
+        super(humanoidOptions);
+        this.team = humanoidOptions.team;
+        this.weapons = humanoidOptions.weapons;
+        this.language = humanoidOptions.language;
+      }
+      greet() {
+        return `${this.name} offers a greeting in ${this.language}.`;
+      }
   }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  };
-  
   
   /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
