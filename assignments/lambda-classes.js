@@ -42,6 +42,69 @@ brody.speak();
 
 
 
+//==========  SUB-CLASS: Student ==========
+class Student extends Person {
+    constructor(studentProps) {
+        super(studentProps);
+        this.previousBackground = studentProps.previousBackground;
+        this.className = studentProps.className;
+        this.favSubjects = studentProps.favSubjects;
+    }
+    listsSubjects(favSubjects) {
+        console.log(`${this.name}'s favorite subjects are: `);
+        console.log(`${this.favSubjects[0]}`);
+        console.log(`${this.favSubjects[1]}`);
+        console.log(`${this.favSubjects[2]}`);
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun the sprint challenge on ${subject}`);
+    }
+}
+
+//========== NEW OBJECTS FOR SUB-CLASS: Student ==========
+const curry = new Student({
+    name: "Steph Curry",
+    age: 29,
+    location: "Oakland, CA",
+    gender: "male",
+    previousBackground: "Sushi Chef",
+    className: "FS14",
+    favSubjects: ["Hoisting", "Constructor Functions", "Scope"]
+})
+
+const james = new Student({
+    name: "LeBron James",
+    age: 31,
+    location: "Miami, FL",
+    gender: "male",
+    previousBackground: "Venture Capitalist",
+    className: "FS12",
+    favSubjects: ["APIs", "the 'this' keyword", "LESS"]
+})
+
+const harden = new Student({
+    name: "James Harden",
+    age: 30,
+    location: "Houston, TX",
+    gender: "male",
+    previousBackground: "Assistant Ranch Hand",
+    className: "iOS3",
+    favSubjects: ["jQuery", "Flex-box", "SASS"]
+})
+
+console.log(curry.previousBackground);
+console.log(james.className);
+console.log(harden.favSubjects);
+james.speak();
+curry.listsSubjects();
+harden.PRAssignment("Responsive Web Design");
+james.sprintChallenge("React");
+
+
+
 //==========  SUB-CLASS: Instructor ==========
 class Instructor extends Person {
     constructor(instructorProps) {
@@ -54,7 +117,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-        console.log(`${student} receives a perfect score on ${subject}`);
+        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
 
@@ -94,31 +157,7 @@ console.log(payton.favLanguage);
 console.log(johnson.catchPhrase);
 payton.speak();
 jordan.demo("closures");
-// johnson.grade(student, subject);
-
-
-//==========  SUB-CLASS: Student ==========
-class Student extends Person {
-    constructor(studentProps) {
-        super(studentProps);
-        this.previousBackground = studentProps.previousBackground;
-        this.className = studentProps.className;
-        this.favSubjects = studentProps.favSubjects;
-    }
-    listsSubjects(favSubjects) {
-        console.log(`${this.name}'s favorite subjects are: `);
-        console.log(`${this.favSubject[0]}`);
-        console.log(`${this.favSubject[1]}`);
-        console.log(`${this.favSubject[2]}`);
-    }
-    PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
-    }
-    sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
-    }
-}
-
+johnson.grade(curry, "API calls");
 
 
 
