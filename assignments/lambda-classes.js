@@ -176,7 +176,49 @@ class ProjectManager extends Instructor {
     }
 }
 
+//========== NEW OBJECTS FOR SUB-CLASS: ProjectManager ==========
+const carter = new ProjectManager({
+    name: "Vince Carter",
+    age: 35,
+    location: "Toronto, Canada",
+    gender: "male",
+    specialty: "Back-end",
+    favLanguage: "Python",
+    catchPhrase: "I bet you I can dunk on you!",
+    gradClassName: "CS1",
+    favInstructor: "Magic Johnson"
+})
 
+const mcgrady = new ProjectManager({
+    name: "Tracy McGrady",
+    age: 32,
+    location: "Dallas, TX",
+    gender: "male",
+    specialty: "Front-end",
+    favLanguage: "CSS",
+    catchPhrase: "Have you ever seen anyone score 13 points in less than 1 minute?",
+    gradClassName: "CS3",
+    favInstructor: "Michael Jordan"
+})
 
+const bryant = new ProjectManager({
+    name: "Kobe Bryant",
+    age: 34,
+    location: "Los Angeles, CA",
+    gender: "male",
+    specialty: "Full Stack",
+    favLanguage: "JavaScript",
+    catchPhrase: "The funny thing is I'm going to tell you which way I'm going to go and you STILL can't stop me!",
+    gradClassName: "CS5",
+    favInstructor: "Michael Jordan"
+})
 
+console.log(carter.gradClassName);
+console.log(mcgrady.favInstructor);
+console.log(bryant.catchPhrase);
+carter.speak();
+bryant.demo("template literals");
+mcgrady.grade(james, "Variables");
+bryant.standUp("#web17");
+carter.debugsCode(harden,"class syntax");
 
