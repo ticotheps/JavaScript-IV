@@ -4,7 +4,7 @@ class Person {
     constructor(props) {
         this.name = props.name;
         this.age = props.age;
-        this.location = props.location:
+        this.location = props.location;
         this.gender = props.gender;
     }
     speak() {
@@ -12,8 +12,8 @@ class Person {
     }
 }
 
-const broski = new Person({
-    name: "John Broski",
+const brody = new Person({
+    name: "Brody Swaggerson",
     age: 31,
     location: "Pigeon, MI",
     gender: "M"
@@ -32,3 +32,8 @@ const broham = new Person({
     location: "Cass City, MI",
     gender: "M"
 })
+
+console.log(brody.name);
+console.log(broseph.age);
+console.log(broham.location);
+
