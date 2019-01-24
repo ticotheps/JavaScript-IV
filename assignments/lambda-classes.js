@@ -12,6 +12,23 @@ class Person {
     }
 }
 
-const dude = new Person({
-    
+const broski = new Person({
+    name: "John Broski",
+    age: 31,
+    location: "Pigeon, MI",
+    gender: "M"
+})
+
+const broseph = new Person({
+    name: "Broseph McBuckets",
+    age: 25,
+    location: "Bad Axe, MI",
+    gender: "M"
+})
+
+const broham = new Person({
+    name: "Abroham Linkin",
+    age: 27,
+    location: "Cass City, MI",
+    gender: "M"
 })
