@@ -1,5 +1,6 @@
 // CODE here for your Lambda Classes
 
+//========== BASE CLASS: Person ==========
 class Person {
     constructor(props) {
         this.name = props.name;
@@ -11,7 +12,37 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
+//========== BASE CLASS: Person ==========
 
+//========== NEW OBJECTS FOR BASE CLASS: Person ==========
+const brody = new Person({
+    name: "Brody Swaggerson",
+    age: 31,
+    location: "Pigeon, MI",
+    gender: "M"
+})
+
+const broseph = new Person({
+    name: "Broseph McBuckets",
+    age: 25,
+    location: "Bad Axe, MI",
+    gender: "M"
+})
+
+const broham = new Person({
+    name: "Abroham Linkin",
+    age: 27,
+    location: "Cass City, MI",
+    gender: "M"
+})
+
+console.log(brody.name);
+console.log(broseph.age);
+console.log(broham.location);
+//========== NEW OBJECTS FOR BASE CLASS: Person ==========
+
+
+//==========  SUB-CLASS: Instructor ==========
 class Instructor extends Person {
     constructor(instructorProps) {
         super(instructorProps);
@@ -26,6 +57,7 @@ class Instructor extends Person {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
 }
+//==========  SUB-CLASS: Instructor ==========
 
 class Student extends Person {
     constructor(studentProps) {
@@ -63,28 +95,5 @@ class ProjectManager extends Instructor {
 }
 
 
-const brody = new Person({
-    name: "Brody Swaggerson",
-    age: 31,
-    location: "Pigeon, MI",
-    gender: "M"
-})
 
-const broseph = new Person({
-    name: "Broseph McBuckets",
-    age: 25,
-    location: "Bad Axe, MI",
-    gender: "M"
-})
-
-const broham = new Person({
-    name: "Abroham Linkin",
-    age: 27,
-    location: "Cass City, MI",
-    gender: "M"
-})
-
-console.log(brody.name);
-console.log(broseph.age);
-console.log(broham.location);
 
