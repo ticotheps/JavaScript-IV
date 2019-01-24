@@ -23,7 +23,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        console.log(`${student} receives a perfect score on ${subject}`);
     }
 }
 
@@ -35,18 +35,33 @@ class Student extends Person {
         this.favSubjects = studentProps.favSubjects;
     }
     listsSubjects(favSubjects) {
-        console.log(`${student.name}'s favorite subjects are: `);
-        console.log(`${student.favSubject[0]}`);
-        console.log(`${student.favSubject[1]}`);
-        console.log(`${student.favSubject[2]}`);
+        console.log(`${this.name}'s favorite subjects are: `);
+        console.log(`${this.favSubject[0]}`);
+        console.log(`${this.favSubject[1]}`);
+        console.log(`${this.favSubject[2]}`);
     }
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
+
+class ProjectManager extends Instructor {
+    constructor(pmProps) {
+        super(pmProps);
+        this.gradClassName = pmProps.gradClassName;
+        this.favInstructor = pmProps.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
 
 const brody = new Person({
     name: "Brody Swaggerson",
