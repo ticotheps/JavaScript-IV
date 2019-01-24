@@ -49,6 +49,8 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        // Stretch Task #1: Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+        this.grade = studentProps.grade;
     }
     listsSubjects(favSubjects) {
         console.log(`${this.name}'s favorite subjects are: `);
@@ -72,7 +74,9 @@ const curry = new Student({
     gender: "male",
     previousBackground: "Sushi Chef",
     className: "FS14",
-    favSubjects: ["Hoisting", "Constructor Functions", "Scope"]
+    favSubjects: ["Hoisting", "Constructor Functions", "Scope"],
+    // New prop for Stretch Task #1
+    grade: 98
 })
 
 const james = new Student({
@@ -82,7 +86,9 @@ const james = new Student({
     gender: "male",
     previousBackground: "Venture Capitalist",
     className: "FS12",
-    favSubjects: ["APIs", "the 'this' keyword", "LESS"]
+    favSubjects: ["APIs", "the 'this' keyword", "LESS"],
+    // New prop for Stretch Task #1
+    grade: 95
 })
 
 const harden = new Student({
@@ -92,7 +98,9 @@ const harden = new Student({
     gender: "male",
     previousBackground: "Assistant Ranch Hand",
     className: "iOS3",
-    favSubjects: ["jQuery", "Flex-box", "SASS"]
+    favSubjects: ["jQuery", "Flex-box", "SASS"],
+    // New prop for Stretch Task #1
+    grade: 96
 })
 
 console.log(curry.previousBackground);
@@ -102,6 +110,8 @@ james.speak();
 curry.listsSubjects();
 harden.PRAssignment("Responsive Web Design");
 james.sprintChallenge("React");
+// Testing Stretch Task #1
+console.log(harden.grade);
 
 
 
