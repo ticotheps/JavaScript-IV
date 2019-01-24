@@ -27,7 +27,14 @@ class Instructor extends Person {
     }
 }
 
-
+class Student extends Person {
+    constructor(studentProps) {
+        super(studentProps);
+        this.previousBackground = studentProps.previousBackground;
+        this.className = studentProps.className;
+        this.favSubjects = studentProps.favSubjects;
+    }
+}
 
 const brody = new Person({
     name: "Brody Swaggerson",
