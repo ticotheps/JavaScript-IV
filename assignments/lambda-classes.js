@@ -12,34 +12,34 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
-//========== BASE CLASS: Person ==========
 
 //========== NEW OBJECTS FOR BASE CLASS: Person ==========
 const brody = new Person({
     name: "Brody Swaggerson",
     age: 31,
     location: "Pigeon, MI",
-    gender: "M"
+    gender: "male"
 })
 
 const broseph = new Person({
     name: "Broseph McBuckets",
     age: 25,
     location: "Bad Axe, MI",
-    gender: "M"
+    gender: "male"
 })
 
 const broham = new Person({
     name: "Abroham Linkin",
     age: 27,
     location: "Cass City, MI",
-    gender: "M"
+    gender: "male"
 })
 
 console.log(brody.name);
 console.log(broseph.age);
 console.log(broham.location);
-//========== NEW OBJECTS FOR BASE CLASS: Person ==========
+brody.speak();
+
 
 
 //==========  SUB-CLASS: Instructor ==========
@@ -57,8 +57,47 @@ class Instructor extends Person {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
 }
-//==========  SUB-CLASS: Instructor ==========
 
+//========== NEW OBJECTS FOR SUB-CLASS: Instructor ==========
+const jordan = new Instructor({
+    name: "Michael Jordan",
+    age: 23,
+    location: "Chicago, IL",
+    gender: "male",
+    specialty: "Front-end",
+    favLanguage: "JavaScript",
+    catchPhrase: "Watch me dunk from the free-throw line!"
+})
+
+const payton = new Instructor({
+    name: "Gary Payton",
+    age: 25,
+    location: "Seattle, WA",
+    gender: "male",
+    specialty: "Back-end",
+    favLanguage: "CSS",
+    catchPhrase: "I bet you that I can shut you down on defense!"
+})
+
+const johnson = new Instructor({
+    name: "Magic Johnson",
+    age: 27,
+    location: "East Lansing, MI",
+    gender: "male",
+    specialty: "Front-end",
+    favLanguage: "HTML",
+    catchPhrase: "I'm looking over here, but I'm passing over there!"
+})
+
+console.log(jordan.specialty);
+console.log(payton.favLanguage);
+console.log(johnson.catchPhrase);
+payton.speak();
+jordan.demo("closures");
+// johnson.grade(student, subject);
+
+
+//==========  SUB-CLASS: Student ==========
 class Student extends Person {
     constructor(studentProps) {
         super(studentProps);
@@ -80,6 +119,10 @@ class Student extends Person {
     }
 }
 
+
+
+
+//==========  SUB-CLASS: ProjectManager ==========
 class ProjectManager extends Instructor {
     constructor(pmProps) {
         super(pmProps);
@@ -93,6 +136,7 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
 
 
 
