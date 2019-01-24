@@ -12,6 +12,23 @@ class Person {
     }
 }
 
+class Instructor extends Person {
+    constructor(instructorProps) {
+        super(instructorProps);
+        this.specialty = instructorProps.specialty;
+        this.favLanguage = instructorProps.favLanguage;
+        this.catchPhrase = instructorProps.catchPhrase;
+    }
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`);
+    }
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect score on ${subject}`);
+    }
+}
+
+
+
 const brody = new Person({
     name: "Brody Swaggerson",
     age: 31,
