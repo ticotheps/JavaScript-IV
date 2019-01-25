@@ -64,6 +64,16 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun the sprint challenge on ${subject}`);
     }
+    // Stretch Task #3: Add a 'graduate' method to a student. This method, when called, will check the grade of the student and see if
+    // they're ready to graduate from Lambda School. If the student's grade is above a 70% let them graduate! Otherswise go back to 
+    // grading their assignments to increase their score.
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`${this.name}'s grade is currently ${this.grade}%! Time to graduate from Lambda School! Yahoo!`);
+        } else {
+            console.log(`Unfortunately, ${this.name}'s grade is currently ${this.grade}%. We still have quite some work to do with the instructors before graduation. Let's go talk to MJ about turning in some extra credit.`);
+        }
+    }
 }
 
 //========== NEW OBJECTS FOR SUB-CLASS: Student ==========
@@ -100,7 +110,7 @@ const harden = new Student({
     className: "iOS3",
     favSubjects: ["jQuery", "Flex-box", "SASS"],
     // New prop for Stretch Task #1
-    grade: 96
+    grade: 66
 })
 
 console.log(curry.previousBackground);
@@ -112,6 +122,8 @@ harden.PRAssignment("Responsive Web Design");
 james.sprintChallenge("React");
 // Testing Stretch Task #1
 console.log(harden.grade);
+// Testing Stretch Task #3
+harden.graduate();
 
 
 
